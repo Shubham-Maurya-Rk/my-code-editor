@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>My Code Editor</title>
+    <style id="styletag"></style>
+    <style>
+        body{
+            background-color: #E7E9EB;;
+        }
+        .c1,.c2{
+            background-color: white;
+        }
+        .top1{
+            background: linear-gradient(to right, #6600cc 0%, #cc00cc 100%);
+            color: white;
+        }
+        .top2{
+            background-color: #cc00cc;
+            color: white;
+        }
+        .main-container {
+            height: 100vh;
+        }
+
+        .c1,
+        .c2 {
+            width: 49%;
+            height: 98vh;
+        }
+        textarea {
+            height: 25vh;
+        }
+        #output{
+            overflow-x: hidden;
+            overflow-y:auto ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container d-flex justify-content-around align-items-center w-100">
+        <div class="c1 border">
+            <div class="p-2 top1 d-flex justify-content-between">
+                <h3>My Code Editor</h3>
+                <button class="btn btn-danger text-white" onclick="runJs()">Run JS</button>
+            </div>
+            <div class="inputs pt-3">
+                <div class="input px-3 mb-2">
+                    <div class="">
+                        <label for="exampleFormControlTextarea1" class="form-label h6">Html Body</label>
+                        <textarea class="form-control" id="html" placeholder="Type yout html body here...." onkeyup="output()"></textarea>
+                    </div>
+                </div>
+                <div class="input px-3 mb-2">
+                    <div class="">
+                        <label for="exampleFormControlTextarea1" class="form-label h6">Css</label>
+                        <textarea class="form-control" id="css" placeholder="Type your css here...." onkeyup="output()"></textarea>
+                    </div>
+                </div>
+                <div class="input px-3 mb-2">
+                    <div class="">
+                        <label for="exampleFormControlTextarea1" class="form-label h6">Js</label>
+                        <textarea class="form-control" placeholder="Type yout Js here..." id="js"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="c2 border">
+            <div class="top2 p-2">
+                <h3>Output</h3>
+            </div>
+            <div id="output">
+                
+            </div>
+        </div>
+    </div>
+    <script id="script"></script>
+    <script>
+        const output = () => {
+            // Adding html
+            let html = document.getElementById("html");
+            let output = document.getElementById("output");
+            output.innerHTML = html.value;
+
+            // Adding CSS
+            let css = document.getElementById("css");
+            let styletag = document.getElementById("styletag");
+            styletag.innerHTML = css.value;
+
+        }
+        const runJs = () => {
+            // Adding Js
+            let script = document.getElementById('script');
+            script.remove();
+            script = document.createElement('script'); script.id = "script";
+            let js = document.getElementById("js");
+            let body = document.getElementById("body");
+            script.text = js.value;
+            document.body.appendChild(script);
+        }
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+</body>
+
+</html>
