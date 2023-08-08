@@ -9,20 +9,26 @@
     <title>My Code Editor</title>
     <style id="styletag"></style>
     <style>
-        body{
-            background-color: #E7E9EB;;
+        body {
+            background-color: #E7E9EB;
+            ;
         }
-        .c1,.c2{
+
+        .c1,
+        .c2 {
             background-color: white;
         }
-        .top1{
+
+        .top1 {
             background: linear-gradient(to right, #6600cc 0%, #cc00cc 100%);
             color: white;
         }
-        .top2{
+
+        .top2 {
             background-color: #cc00cc;
             color: white;
         }
+
         .main-container {
             height: 100vh;
         }
@@ -32,12 +38,24 @@
             width: 49%;
             height: 98vh;
         }
+
         textarea {
             height: 25vh;
         }
-        #output{
+
+        #output {
             overflow-x: hidden;
-            overflow-y:auto ;
+            overflow-y: auto;
+        }
+
+        @media screen and (max-width: 700px) {
+            .main-container{
+                display: block !important;
+            }
+            .c1,.c2{
+                width: 100%;
+                height: 120vh;
+            }
         }
     </style>
 </head>
@@ -53,13 +71,15 @@
                 <div class="input px-3 mb-2">
                     <div class="">
                         <label for="exampleFormControlTextarea1" class="form-label h6">Html Body</label>
-                        <textarea class="form-control" id="html" placeholder="Type yout html body here...." onkeyup="output()"></textarea>
+                        <textarea class="form-control" id="html" placeholder="Type yout html body here...."
+                            onkeyup="output()"></textarea>
                     </div>
                 </div>
                 <div class="input px-3 mb-2">
                     <div class="">
                         <label for="exampleFormControlTextarea1" class="form-label h6">Css</label>
-                        <textarea class="form-control" id="css" placeholder="Type your css here...." onkeyup="output()"></textarea>
+                        <textarea class="form-control" id="css" placeholder="Type your css here...."
+                            onkeyup="output()"></textarea>
                     </div>
                 </div>
                 <div class="input px-3 mb-2">
@@ -75,7 +95,7 @@
                 <h3>Output</h3>
             </div>
             <div id="output">
-                
+
             </div>
         </div>
     </div>
